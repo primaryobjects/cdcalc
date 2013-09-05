@@ -1,0 +1,32 @@
+﻿extends ../layout
+
+block title
+	title About: CD Early Withdrawal Calculator
+
+block footer
+	script
+		$(document).ready(function () {
+			setActiveTab('about');
+		});
+
+block content
+	div.container
+		h1 About
+		
+		h3 Let's face it. Interest rates, right now, stink.
+		p Stashing savings in the bank will earn less than 1% return. Investing money in stocks or bonds comes with more risk. Stuck right in the middle are CDs (Certificate of Deposits). The longer the duration of the CD, the better the interest rate. However, rates are bound to go up; and when they do, you'll want to move your savings into a higher yielding investement. For this reason, most CDs offer an early withdrawal penalty, allowing you to break the CD.
+		
+		h3 Before you purchase a CD
+		p And especially if you plan on breaking it early, you'll want to consider the early withdrawal penalty and factor this into the effective interest rate for the CD. This CD Early Withdrawal Calculator lets you view the detailed effective interest rates, per month, while taking into account the early withdrawal penalty.
+		
+		h3 Using the calculator is easy
+		p Just enter your deposit amount, interest rate (APY), early withdrawal penalty days, duration, and a name for your report. Click Calculate and find the effective rate. Compare various CD interest rates and withdrawal penalties from different banks' offerings to see the true effective interest rate. You'll probably find that most CDs easily beat traditional savings accounts, with regard to the effective interest rate; even after taking into account the early withdrawal penalty.
+		p After calculating, you can save the "permalink" url, located just below the interest rate summary, to share the result with others or link from your own web site. Clicking the permalink automatically displays the report for the CD data you provided. Neat.
+
+		h3 Don't forget to read the fine-print
+		p Be sure to read the disclosure statement associated with the bank's CD to verify the bank will allow breaking of the CD before it matures. In regard to liquidity, CDs are minimal risk, but not risk-free.
+		
+		h3 History
+		p The Early Withdrawal CD Calculator was originally created as an Excel spreadsheet to calculate the yearly rate of return, assuming you take the CD early withdrawal penalty. It was later ported to a web application and is now available online. This application was created by 
+			a(href='http://www.primaryobjects.com/kory-becker.aspx', target='_blank', title='Created by Kory Becker') Kory Becker
+			.

@@ -1,0 +1,124 @@
+extends layout
+
+block append head
+	link(rel='stylesheet', href='/css/jquery.jqplot.css')
+
+block footer
+	script(src='/scripts/jquery.formatCurrency-1.4.0.min.js')
+	script(src='/scripts/jquery.jqplot.min.js')
+	script(src='/scripts/jqplot.canvasTextRenderer.min.js')
+	script(src='/scripts/jqplot.canvasAxisLabelRenderer.min.js')
+	script(src='/scripts/setup.js')
+	script(src='/scripts/script.js')
+	script(src='/scripts/util.js')
+	script(type='text/javascript', src='http://s7.addthis.com/js/300/addthis_widget.js#pubid=surfer6')
+	script
+		var addthis_config = {"data_track_addressbar":true};
+		$(document).ready(function () {
+			setActiveTab('home');
+		});
+
+block content
+	div.container
+		div
+			h1 CD Early Withdrawal Calculator
+			p A quick and easy way to calculate the effective interest rate on a CD, including the early withdrawal penalty.
+
+		div.addthis_toolbox.addthis_default_style
+			a.addthis_button_facebook_like(fb:like:layout='button_count')
+			a.addthis_button_tweet
+			a.addthis_counter.addthis_pill_style
+
+		.bs-docs-example
+			.pull-left
+				ul
+					li
+						a(href='/?d=10000.00&i=1.54&c=Daily&p=60&t=60&n=Ally%20Bank%205-Year%20CD#report') Ally 5-Year CD @ 1.54% APY
+					li
+						a(href='/?d=10000.00&i=1.60&c=Daily&p=90&t=60&n=Eli%20Lilly%20FCU%205-Year%20CD#report') Eli Lilly FCU 5-Year CD @ 1.60% APY
+					li
+						a(href='/?d=10000.00&i=1.75&c=Daily&p=365&t=60&n=CIT%20Jumbo%205-Year%20CD#report') CIT Jumbo 5-Year CD @ 1.75% APY
+			.pull-left
+				ul
+					li
+						a(href='/?d=10000.00&i=2.00&c=Daily&p=450&t=120&n=Discover%2010-Year%20CD#report') Discover 10-Year CD @ 2.00% APY
+					li
+						a(href='/?d=10000.00&i=1.85&c=Daily&p=180&t=60&n=Barclays%205-Year%20CD#report') Barclays 5-Year CD @ 1.85% APY
+					li
+						a(href='/?d=10000.00&i=1.75&c=Daily&p=360&t=60&n=Nationwide%205-Year%20CD#report') Nationwide 5-Year CD @ 1.75% APY
+			.clear
+
+		form.form-horizontal
+			.control-group
+				label.control-label(for='txtDeposit') Deposit Amount
+				.controls
+					input#txtDeposit(type='text', placeholder='$50000', value='10000')
+			.control-group
+				label.control-label(for='txtAPY') Interest Rate (APY)
+				.controls
+					.input-append
+						input#txtAPY(type='text', placeholder='1.69%', value='1.69', style='width:180px')
+						span.add-on
+							%
+			.control-group
+				label.control-label(for='lstCompound') Compounded
+				.controls
+					select#lstCompound
+						option Daily
+						option Monthly
+						option Quarterly
+						option Semi-Annually
+						option Annually
+			.control-group
+				label.control-label(for='txtPenaltyDays') Penalty in Days
+				.controls
+					input#txtPenaltyDays(type='text', placeholder='60', value='60')					
+					a(href="#", rel="tooltip", title="Early withdrawal penalty equal to N days interest")
+						span#formHelpIcon
+							i.icon-info-sign
+			.control-group
+				label.control-label(for='txtDuration') Duration in Months
+				.controls
+					input#txtDuration(type='text', placeholder='60', value='60')
+			.control-group
+				label.control-label(for='txtName') CD Name
+				.controls
+					input#txtName(type='text', placeholder='My Bank 5-Year CD', value='My Bank 5-Year CD')
+
+			a(name='report')
+
+			.form-actions
+				button#btnSubmit.btn.btn-primary(type="submit") Calculate
+		
+		h3#summaryName.summary
+		h2#summary.summary
+
+		#permalinkDiv
+			a.permalink(href="#") <i class="icon-fire"></i>
+			&nbsp;
+			a.permalink(href="#") Permalink
+
+		.clear
+
+		.info Interest Per Year
+			#interestPerYear.infoValue $0
+		.info Interest Per Month
+			#interestPerMonth.infoValue $0
+		.info Penalty
+			#penalty.infoValue $0
+		.clear
+
+		#results
+			table#results-table.table.table-hover.table-condensed
+				tr
+					th Month
+					th Interest
+					th Interest Yield
+					th Interest No Penalty
+					th Interest Yield No Penalty
+
+		h3#summaryTotalDiv Total Value at Maturity 
+			span#summaryTotal
+
+		hr
+		#graph
