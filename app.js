@@ -13,6 +13,7 @@ var express = require('express')
   , usersonline = require('usersonline');
 
 var app = express();
+var contentBlocks = require('contentblocks')({ app: app, host: 'red-ant.herokuapp.com', pathFind: '/v1/nest/find?q={"@subject":"[id]"}', pathPost: '/v1/nest', pathPut: '/v1/nest/[id]', pathDelete: '/v1/nest/[id]' });
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
@@ -24,6 +25,7 @@ app.configure(function(){
   app.use(express.methodOverride());
   app.use(express.cookieParser('cdearlywithdrawalcalculator'));
   app.use(express.session());
+  app.use(contentBlocks.render); // Place this line BEFORE app.use(app.router) as it needs to pre-render content.
   app.use(usersonline.logger); // Enable UsersOnline. 
   app.use(express.bodyParser());
   app.use(app.router);
@@ -32,8 +34,8 @@ app.configure(function(){
 });
 
 app.configure('development', function(){
-  app.use(express.errorHandler());
-    app.locals.pretty = true;
+	app.use(express.errorHandler());
+	app.locals.pretty = true;
 });
 
 app.get('/', routes.index);

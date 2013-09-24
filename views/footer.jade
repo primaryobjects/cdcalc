@@ -4,4 +4,23 @@ script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
 script(src='/scripts/bootstrap.min.js')
 script(src='/scripts/navigation.js')
 
+if isAdmin
+	script(src='http://code.jquery.com/ui/1.9.2/jquery-ui.js')
+	script(src='/scripts/contentblocks/underscore-min.js')
+	script(src='/scripts/contentblocks/backbone-min.js')
+	script(src='/scripts/contentblocks/vie-min.js')
+	script(src='/scripts/contentblocks/jquery.tagsinput.min.js')
+	script(src='/scripts/contentblocks/jquery.rdfquery.min.js')
+	script(src='/scripts/contentblocks/annotate-min.js')
+	script(src='/scripts/contentblocks/rangy-core-1.2.3.js')
+	script(src='/scripts/contentblocks/hallo-min.js')
+	script(src='/scripts/contentblocks/aloha/lib/require.js')
+	script(src='/scripts/contentblocks/aloha/lib/aloha-full.min.js', data-aloha-plugins='common/ui,common/format,common/link,common/image,extra/sourceview')
+	script(src='/scripts/contentblocks/create-min.js')
+	script(src='/scripts/contentblocks/contentblocks.js')
+
+	link(rel='stylesheet', href='http://cdn.aloha-editor.org/latest/css/aloha.css')
+	link(rel='stylesheet', href='/css/contentblocks/create-ui/css/create-ui.css')
+	link(rel='stylesheet', href='/css/contentblocks/midgard-notifications/midgardnotif.css')
+
 block footer

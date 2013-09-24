@@ -12,7 +12,7 @@ block footer
 	script(src='/scripts/script.js')
 	script(src='/scripts/util.js')
 	script(type='text/javascript', src='http://s7.addthis.com/js/300/addthis_widget.js#pubid=surfer6')
-	script
+	script.
 		var addthis_config = {"data_track_addressbar":true};
 		$(document).ready(function () {
 			setActiveTab('home');
@@ -32,20 +32,20 @@ block content
 		.bs-docs-example
 			.pull-left
 				ul
-					li
-						a(href='/?d=10000.00&i=1.54&c=Daily&p=60&t=60&n=Ally%20Bank%205-Year%20CD#report') Ally 5-Year CD @ 1.54% APY
-					li
-						a(href='/?d=10000.00&i=1.60&c=Daily&p=90&t=60&n=Eli%20Lilly%20FCU%205-Year%20CD#report') Eli Lilly FCU 5-Year CD @ 1.60% APY
-					li
-						a(href='/?d=10000.00&i=1.75&c=Daily&p=365&t=60&n=CIT%20Jumbo%205-Year%20CD#report') CIT Jumbo 5-Year CD @ 1.75% APY
+					#cdCalcIndexLeft(about='cdCalcIndexLeft')
+							div(property='content')
+								if typeof(cdCalcIndexLeft_content) !== 'undefined'
+									!= cdCalcIndexLeft_content
+								else
+									li [edit here]
 			.pull-left
 				ul
-					li
-						a(href='/?d=10000.00&i=2.00&c=Daily&p=450&t=120&n=Discover%2010-Year%20CD#report') Discover 10-Year CD @ 2.00% APY
-					li
-						a(href='/?d=10000.00&i=1.85&c=Daily&p=180&t=60&n=Barclays%205-Year%20CD#report') Barclays 5-Year CD @ 1.85% APY
-					li
-						a(href='/?d=10000.00&i=1.75&c=Daily&p=360&t=60&n=Nationwide%205-Year%20CD#report') Nationwide 5-Year CD @ 1.75% APY
+					#cdCalcIndexRight(about='cdCalcIndexRight')
+							div(property='content')
+								if typeof(cdCalcIndexRight_content) !== 'undefined'
+									!= cdCalcIndexRight_content
+								else
+									li [edit here]
 			.clear
 
 		form.form-horizontal
