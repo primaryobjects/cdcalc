@@ -59,7 +59,7 @@ block content
 					.input-append
 						input#txtAPY(type='text', placeholder='1.69%', value='1.69', style='width:180px')
 						span.add-on
-							%
+						|	%
 			.control-group
 				label.control-label(for='lstCompound') Compounded
 				.controls
@@ -72,7 +72,7 @@ block content
 			.control-group
 				label.control-label(for='txtPenaltyDays') Penalty in Days
 				.controls
-					input#txtPenaltyDays(type='text', placeholder='60', value='60')					
+					input#txtPenaltyDays(type='text', placeholder='60', value='60')
 					a(href="#", rel="tooltip", title="Early withdrawal penalty equal to N days interest")
 						span#formHelpIcon
 							i.icon-info-sign
@@ -95,7 +95,7 @@ block content
 
 		#permalinkDiv
 			a.permalink(href="#") <i class="icon-fire"></i>
-			&nbsp;
+			| &nbsp;
 			a.permalink(href="#") Permalink
 
 		.clear

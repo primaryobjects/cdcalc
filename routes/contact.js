@@ -21,7 +21,8 @@ exports.send = function (req, res) {
 
     if (req.body.txtName != '' && isValidEmailField(req.body.txtName) &&
         req.body.txtEmail != '' && isValidEmailField(req.body.txtEmail) && req.body.txtEmail.indexOf('@') != -1 && req.body.txtEmail.indexOf('%') == -1 &&
-        req.body.txtMessage != '' && isValidEmailField(req.body.txtMessage)) {
+        req.body.txtMessage != '' && isValidEmailField(req.body.txtMessage) &&
+        req.body.txtAddress == '') {
         email.send({
             host : "smtp.gmail.com",              // smtp server hostname
             port : "465",                     // smtp server port

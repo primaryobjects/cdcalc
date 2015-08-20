@@ -4,6 +4,7 @@ block title
 	title Contact: CD Early Withdrawal Calculator
 
 block footer
+	script(src='/scripts/contact.js')
 	script.
 		$(document).ready(function () {
 			setActiveTab('contact');
@@ -20,6 +21,11 @@ block content
 				label.control-label(for='name') Name
 				.controls
 					input#txtName(type='text', name='txtName', class='span4', placeholder='Name', value=form.txtName)
+			div(style='display: none;')
+				.control-group
+					label.control-label(for='address') Address
+					.controls
+						input#txtAddress(type='text', name='txtAddress', class='span4', placeholder='Address', value=form.txtAddress)
 			.control-group
 				label.control-label(for='txtEmail') Email
 				.controls
@@ -33,6 +39,8 @@ block content
 
 		if status != null
 			if status == 1
-				h3 Thanks! Your message has been sent successfully.
+				h3#contactResult Thanks! Your message has been sent successfully.
 			else
-				h3 Please provide all fields and try again.
+				h3#contactResult Please provide all fields and try again.
+		else
+			h3#contactResult
